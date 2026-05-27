@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ebook-to-pdf"
+version = "2.0.0"
+description = "Screen-capture based e-book to PDF converter"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "mss>=9.0.1",
+    "Pillow>=10.0.0",
+    "pynput>=1.7.6",
+    "PySide6>=6.6.0",
+]
+
+[project.optional-dependencies]
+build = ["pyinstaller>=6.0.0"]
+
+[project.scripts]
+ebook-to-pdf = "ebook_to_pdf.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ebook_to_pdf = ["assets/*.ico"]
